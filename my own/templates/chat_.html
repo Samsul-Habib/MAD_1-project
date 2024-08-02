@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body{
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            border:1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1) ;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #999; /* Light placeholder color */
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e90ff; /* Blue background for the button */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+        }
+        button:hover {
+            background-color: #4682b4; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+        button:active {
+            transform: scale(0.98); /* Slightly shrink the button on click */
+        }
+        .form-group {
+            margin-top: 20px;
+            text-align: center; /* Center align form elements */
+        }
+        textarea {
+            resize: vertical; /* Allow vertical resizing only */
+        }
+    </style>
+</head>
+<body>
+    <form action="{{url_for('new_chat')}}" method="POST" class="form-group">
+        <input type="text" name="recipient" placeholder="Enter Sponsor's username" required><br><br>
+        <input type="text" name="sender" placeholder="Enter your username" required><br><br>
+        <textarea name="content" rows="3" required placeolder="Type your mesage..."></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+    <br>
+    <br>
+    <!--<a href="/userlogin/inf_dash/chat">Back</a>-->
+</body>

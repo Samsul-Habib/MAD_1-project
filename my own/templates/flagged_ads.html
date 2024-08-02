@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flagged Ad Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .red-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .red-button:hover {
+            background-color: darkred;
+        }
+    </style>
+<body>
+    {% for ads in ad %}
+        <div class="container">
+            <p><strong>Name of the Ad:</strong>   {{ads.ad_name}}</p>
+            <p><strong>Ad created by:</strong>   {{ads.username}}</p>
+            <p><strong>Details of the Ad:</strong>    {{ads.ad_details}}</p>
+            <p><strong>Camp Name:</strong>  {{ads.camp_name}}</p>
+            <p><strong>Target Audience:</strong>  {{ads.ad_aud}}</p>
+            <p><strong>Budget:</strong>  {{ads.ad_price}}</p>
+            <p><strong>Duration:</strong>   {{ads.ad_duration}}</p>
+            <a href="{{url_for('unflagged_ads',ad_id=ads.id)}}">Unflag</a>
+        </div>
+    {%endfor%}
+    <br>
+    <br>
+    <a href="/adminlogin/admindash">Go back</a>
+</body>
+</head>

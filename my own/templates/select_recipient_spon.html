@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body{
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            border:1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .message{
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .sender{
+            background-color: #e7f3fe;
+            border-left: 5px solid #1e90ff;
+        }
+        .form-group{
+            margin-top: 20px;
+            text-align: center;
+        }
+        .recipient{
+            background-color: #fce7e7;
+            border-left: 5px solid #ff6f61;
+        }
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            width: 80%;
+            max-width: 300px; /* Limit the maximum width */
+            margin: 10px 0; /* Add some margin around the select box */
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #1e90ff; /* Blue background for the button */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+        }
+        button:hover {
+            background-color: #4682b4; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+        button:active {
+            transform: scale(0.98); /* Slightly shrink the button on click */
+        }
+    </style>
+</head>
+<body>
+    <h2>Who do you want to chat?</h2>
+
+    <form action="{{url_for('chat_spon')}}" method="POST" class="form-group">
+        <label for='recipient'>Choose recipient:</label><br>
+        <select id="recipient" name="select_recp">
+            {% for username in spons %}
+            <option value="{{username}}">{{username}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Go</button>
+    </form>  
+</body>

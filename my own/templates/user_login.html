@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .button{
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        .inf-reg{
+            background-color: #4CAF50;
+            color: white;
+        }
+        .spon-reg{
+            background-color: #4CAF50;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .admin-login-link {
+            position: absolute;
+            bottom: 20px; /* Adjust as needed for spacing */
+            text-align: center;
+            width: 100%;
+        }
+        .admin-login-link h2 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="/userlogin" method="POST">
+                <h1>User Login</h1>
+                <label for="username"><strong>Username:</strong></label>
+                <input type="text" id="username" name="username" placeholder="User name" required>
+                <label for="password"><strong>Password:</strong></label>
+                <input type="password" id='password' name='password' placeholder="Password" required>
+                <label for="role"><strong>Select Role:</strong></label>
+                <select id="role" name="role" required>
+                    <option value="influencer">Influencer</option>
+                    <option value="sponsor">Sponsor</option>
+                </select>
+                <button type="submit">Login</button>
+            </form>
+            <div class="'footer-links">
+                <strong>New user?</strong> <a href="/userlogin/sign_up">Register</a><br>
+                <strong>Forgot</strong> <a href="/userlogin/reset_password">Password?</a>
+            </div>
+        </div>
+    </div>
+    <div class="admin-login-link">
+        <a href="/adminlogin"><h2><strong>Admin login</strong></h2></a>
+    </div>
+</body>
+</html>
