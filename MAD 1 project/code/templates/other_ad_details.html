@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Ad Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1>Ad Details</h1>
+        <p><strong>Name of the Ad:</strong>   {{ad.ad_name}}</p>
+        <p><strong>Ad created by:</strong>   {{ad.username}}</p>
+        <p><strong>Details of the Ad:</strong>    {{ad.ad_details}}</p>
+        <p><strong>Camp Name:</strong>  {{ad.camp_name}}</p>
+        <p><strong>Target Audience:</strong>  {{ad.ad_aud}}</p>
+        <p><strong>Budget:</strong>  {{ad.ad_price}}</p>
+        <p><strong>Duration:</strong>   {{ad.ad_duration}}</p>
+        <br>
+        {% if flagged_ad %}
+            <h3><p style="color:red;">*This ad has been flagged by the admin.</p></h3>
+        {% endif %}
+        <a href="/userlogin/spon_dash/{{username}}">Go back</a>
+    </div>
+</body>
+
+<style>
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive video */
+iframe, embed, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive text */
+body {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}
+</style>
+</head>

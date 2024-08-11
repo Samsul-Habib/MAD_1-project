@@ -1,0 +1,134 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor's Task Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align:center;
+            margin-bottom: 20px;
+        }
+        label{
+            font-size: 16px;
+            color:#333;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"],textarea{
+            width:100%;
+            padding:10px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            box-sizing:border-box;
+            font-size:16px;
+            border-radius: 4px;
+        }
+        textarea{
+            resize:vertical;
+            height:100px;
+        }
+        input[type="submit"],a{
+            background-color: #007bff;
+            color:white;
+            border:none;
+            border-radius:4px;
+            padding:10px 15px;
+            cursor:pointer;
+            font-size:16px;
+            transition: background-color 0.3s;
+            margin-top:10px;
+            text-decoration: none;
+        }
+        input[type="submit"]:hover,a:hover{
+            background-color: #0056b3;
+        }
+    </style>
+
+<style>
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive video */
+iframe, embed, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive text */
+body {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+<body>
+    <h1>Update your task</h1>
+    <div class="container">
+        <form action="/userlogin/spon_dash/update_task/{{task.id}}/{{username}}" method="POST">
+            <label for="camp_name">Campaign Name:</label>
+            <input type="text" id="camp_name" name="camp_name" value="{{task.camp_name}}" required><br><br>
+            <label for="camp_details">Campaign Description:</label>
+            <textarea id="camp_details" name="camp_details" required>{{task.camp_details}}</textarea><br><br>
+            <label for="price">Price offered:</label>
+            <input type="text" id="price" name="price" value="{{task.price}}" required><br><br>
+            
+            <label for="start_date">Start Date:</label>
+            <input type="text" id="start_date" name="start_date" value="{{task.start_date}}"><br><br>
+            
+            <label for="end_date">End Date:</label>
+            <input type="text" id="end_date" name="end_date" value="{{task.end_date}}"><br><br>
+        
+            <!--<label for="category">Category:</label>
+            <input type="text" id="category" name="category" value="{{task.category}}" required><br><br>-->
+            <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="fashion" {% if task.category == 'fashion' %}selected{% endif %}>Fashion</option>
+                    <option value="fitness" {% if task.category == 'fitness' %}selected{% endif %}>Fitness</option>
+                    <option value="tech" {% if task.category == 'tech' %}selected{% endif %}>Technology</option>
+                    <option value="travel" {% if task.category == 'travel' %}selected{% endif %}>Travel</option>
+                    <option value="food" {% if task.category == 'food' %}selected{% endif %}>Food</option>
+                </select>
+            <br>   
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <br>
+        <a href="/userlogin/spon_dash/your_camp/{{username}}">Back</a>
+    </div>
+</body>
+</html>
