@@ -1,0 +1,1 @@
+Built a full stack application for Sponsor and Influencer engagement platform where sponsors can run campaigns and advertisements on dfferent topics and influenceres can get monetary benefit by participating.
